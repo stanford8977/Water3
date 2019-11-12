@@ -1,6 +1,7 @@
 package com.fju.water;
 
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -69,11 +70,13 @@ public class MainActivity extends AppCompatActivity {
             else if (monthn>=51){
                 outcome =(monthn*12.075f)-110.25f;
             }
-            new AlertDialog.Builder(MainActivity.this)
+            Intent intent=new Intent(this,ResultActivity.class);
+            startActivity(intent);
+           /* new AlertDialog.Builder(MainActivity.this)
                     .setTitle("每月抄表")
                     .setMessage("費用: "+outcome)
                     .setPositiveButton("ok",listener)
-                    .show();
+                    .show();*/
         }
         else if (!TextUtils.isEmpty(next.getText().toString())){
             float nextn=Float.parseFloat(next.getText().toString());
