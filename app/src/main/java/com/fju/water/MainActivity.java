@@ -20,8 +20,8 @@ import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
 
-    private EditText month;
-    private EditText next;
+    private TextView month;
+    private TextView next;
     private Button result;
     private double outcome;
     private String title;
@@ -94,6 +94,13 @@ public class MainActivity extends AppCompatActivity {
                         .setMessage("費用: "+outcome)
                         .setPositiveButton("ok",listener)
                         .show();
+        }
+        else if (TextUtils.isEmpty(next.getText().toString())&&TextUtils.isEmpty(month.getText().toString())){
+            new AlertDialog.Builder(MainActivity.this)
+                    .setTitle("fail")
+                    .setMessage("fail")
+                    .setPositiveButton("ok",null)
+                    .show();
         }
     }
     @Override
