@@ -15,12 +15,13 @@ import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
 
-    private TextView month;
-    private TextView next;
+    private EditText month;
+    private EditText next;
     private Button result;
     private double outcome;
     private String title;
@@ -48,13 +49,14 @@ public class MainActivity extends AppCompatActivity {
         DialogInterface.OnClickListener listener=new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
+                month.setText("");
+                next.setText("");
             }
         };
         title = "";
-        outcome = 0.0;
-        float monthn=Float.parseFloat(month.getText().toString());
-        float nextn=Float.parseFloat(next.getText().toString());
         if (!TextUtils.isEmpty(month.getText().toString())){
+            float monthn=Float.parseFloat(month.getText().toString());
+            outcome = 0;
             if (monthn>=1&&monthn<=10){
                 outcome = monthn*7.35f;
             }
@@ -70,26 +72,29 @@ public class MainActivity extends AppCompatActivity {
             new AlertDialog.Builder(MainActivity.this)
                     .setTitle("每月抄表")
                     .setMessage("費用: "+outcome)
-                    .setPositiveButton("ok",null)
+                    .setPositiveButton("ok",listener)
                     .show();
         }
-        /*else
-        if (nextn>=1&&monthn<=20){
-            outcome = monthn*7.35;
-            title="格月抄表";
+        else if (!TextUtils.isEmpty(next.getText().toString())){
+            float nextn=Float.parseFloat(next.getText().toString());
+            outcome = 0;
+                if (nextn>=1&&nextn<=20){
+                    outcome=nextn*7.35f;
+                }
+                else if (nextn>=21&&nextn<=60){
+                    outcome=nextn*9.45f-42;
+                } else if (nextn>=61&&nextn<=100) {
+                    outcome = nextn * 11.55f - 168;
+                }
+                else {
+                    outcome = nextn * 12.075f - 220.5f;
+                }
+                new AlertDialog.Builder(MainActivity.this)
+                        .setTitle("隔月抄表")
+                        .setMessage("費用: "+outcome)
+                        .setPositiveButton("ok",listener)
+                        .show();
         }
-        else if (monthn>=21&&monthn<=60){
-            outcome =(monthn*9.45)-42;
-            title="格月抄表";
-        }
-        else if (monthn>=61&&monthn<=100){
-            outcome =(monthn*11.55)-168;
-            title="格月抄表";
-        }
-        else if (monthn>=101){
-            outcome =(monthn*12.075)-220.5;
-            title="格月抄表";
-        }*/
     }
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
