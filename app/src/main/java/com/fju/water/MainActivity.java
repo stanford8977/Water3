@@ -68,11 +68,11 @@ public class MainActivity extends AppCompatActivity {
                     Intent intent=new Intent(MainActivity.this,ResultActivity.class);
                     intent.putExtra("fee",outcome);
                     startActivity(intent);
-           /* new AlertDialog.Builder(MainActivity.this)
+           new AlertDialog.Builder(MainActivity.this)
                     .setTitle("每月抄表")
-                    .setMessage("費用: "+outcome)
-                    .setPositiveButton("ok",listener)
-                    .show();*/
+                    .setMessage(getString(R.string.fee)+outcome)
+                    .setPositiveButton(getString(R.string.ok),null)
+                    .show();
                 }
                 else if (!TextUtils.isEmpty(next.getText().toString())){
                     float nextn=Float.parseFloat(next.getText().toString());

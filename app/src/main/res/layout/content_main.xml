@@ -12,7 +12,7 @@
         android:id="@+id/text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="每月抄表"
+        android:text="@string/monthly"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
@@ -33,10 +33,10 @@
 
     <TextView
         android:id="@+id/textView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="180dp"
+        android:layout_height="27dp"
         android:layout_marginTop="40dp"
-        android:text="隔月抄表"
+        android:text="@string/every_other_month"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.501"
@@ -58,13 +58,12 @@
         android:id="@+id/summit"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:onClick="caculate"
-        android:text="Button"
+        android:text="@string/water_fee"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintHorizontal_bias="0.489"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/next"
-        app:layout_constraintVertical_bias="0.184" />
+        app:layout_constraintVertical_bias="0.242" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
