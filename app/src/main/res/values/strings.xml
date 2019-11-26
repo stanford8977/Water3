@@ -6,4 +6,5 @@
     <string name="water_fee">water fee</string>
     <string name="fee">fee:</string>
     <string name="ok">ok</string>
+    <string name="extra_fee">fee</string>
 </resources>
