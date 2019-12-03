@@ -132,6 +132,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 Log.d(TAG , getResources().getStringArray(R.array.cities)[position]);
+                
             }
 
             @Override
